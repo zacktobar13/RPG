@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 5c3b8f238fdda6142bb42c8521442a56
-timeCreated: 1490064362
+guid: 6284888bed5961d43850952ea3f9b056
+timeCreated: 1490137784
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player1_0
-    21300002: Player1_1
-    21300004: Player1_2
-    21300006: Player1_3
-    21300008: Player1_4
-    21300010: Player1_5
-    21300012: Player1_6
-    21300014: Player1_7
-    21300016: Player1_8
-    21300018: Player1_9
-    21300020: Player1_10
-    21300022: Player1_11
-    21300024: Player1_12
-    21300026: Player1_13
-    21300028: Player1_14
-    21300030: Player1_15
+    21300000: PlayerCharacter_0
+    21300002: PlayerCharacter_1
+    21300004: PlayerCharacter_2
+    21300006: PlayerCharacter_3
+    21300008: PlayerCharacter_4
+    21300010: PlayerCharacter_5
+    21300012: PlayerCharacter_6
+    21300014: PlayerCharacter_7
+    21300016: PlayerCharacter_8
+    21300018: PlayerCharacter_9
+    21300020: PlayerCharacter_10
+    21300022: PlayerCharacter_11
+    21300024: PlayerCharacter_12
+    21300026: PlayerCharacter_13
+    21300028: PlayerCharacter_14
+    21300030: PlayerCharacter_15
+    21300032: PlayerCharacter_16
+    21300034: PlayerCharacter_17
+    21300036: PlayerCharacter_18
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -67,25 +70,17 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 256
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
     maxTextureSize: 256
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-  - buildTarget: Android
-    maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player1_0
+      name: PlayerCharacter_0
       rect:
         serializedVersion: 2
         x: 0
@@ -107,7 +102,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_1
+      name: PlayerCharacter_1
       rect:
         serializedVersion: 2
         x: 32
@@ -120,7 +115,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_2
+      name: PlayerCharacter_2
       rect:
         serializedVersion: 2
         x: 64
@@ -133,7 +128,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_3
+      name: PlayerCharacter_3
       rect:
         serializedVersion: 2
         x: 96
@@ -146,7 +141,59 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_4
+      name: PlayerCharacter_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_8
       rect:
         serializedVersion: 2
         x: 0
@@ -159,7 +206,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_5
+      name: PlayerCharacter_9
       rect:
         serializedVersion: 2
         x: 32
@@ -172,7 +219,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_6
+      name: PlayerCharacter_10
       rect:
         serializedVersion: 2
         x: 64
@@ -185,7 +232,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_7
+      name: PlayerCharacter_11
       rect:
         serializedVersion: 2
         x: 96
@@ -198,7 +245,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_8
+      name: PlayerCharacter_12
       rect:
         serializedVersion: 2
         x: 128
@@ -211,7 +258,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_9
+      name: PlayerCharacter_13
       rect:
         serializedVersion: 2
         x: 160
@@ -224,75 +271,36 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player1_10
+      name: PlayerCharacter_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_15
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_16
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player1_11
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player1_12
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player1_13
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player1_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player1_15
-      rect:
-        serializedVersion: 2
-        x: 160
         y: 0
         width: 32
         height: 32
