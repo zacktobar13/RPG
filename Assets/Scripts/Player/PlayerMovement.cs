@@ -13,11 +13,18 @@ public class PlayerMovement : MonoBehaviour {
 
 	float upDown;
 	float leftRight;
+	Animator animator;
+
+	void Awake() {
+		animator = GetComponentInChildren<Animator>();
+	}
 
 	void Update() {
 
 		leftRight = Input.GetAxis("Horizontal");
 		upDown = Input.GetAxis("Vertical");
+
+		animator.SetFloat("RunBlend", Mathf.Abs(upDown));
 
 		transform.Translate(Vector3.forward * upDown * movementSpeed * Time.deltaTime);
 
