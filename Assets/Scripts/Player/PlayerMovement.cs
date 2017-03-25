@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour {
 		leftRight = Input.GetAxis("Horizontal");
 		upDown = Input.GetAxis("Vertical");
 
+
 		animator.SetFloat("RunBlend", Mathf.Abs(upDown));
 
 		// Actual movement
@@ -45,6 +46,31 @@ public class PlayerMovement : MonoBehaviour {
 
 		characterStats.xVelocity = xVelocity.x;
 		characterStats.zVelocity = zVelocity.z;
+
+		UpdateDirection();
+	}
+
+	// First determine which axis is receiving a greater value of input. Then, determine which
+	// polarity (left/right, up/down), is occuring within that axis for proper direction handling.
+	void UpdateDirection() {
+
+		if (Mathf.Abs(zVelocity.z) >= Mathf.Abs(xVelocity.x)) {
+
+			if (zVelocity.z >= .01f) {
+				characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Up);
+			} else if (zVelocity.z <= -.01f) {
+				characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Down);
+			}
+
+		} else {
+
+			if (xVelocity.x >= .01f) {
+				characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Right);
+			} else if (xVelocity.x <= -.01f) {
+				characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Left);
+			}
+
+		}
 
 	}
 }

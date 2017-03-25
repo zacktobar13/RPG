@@ -4,10 +4,11 @@ using UnityEngine.UI;
 public class ObjectDebugGUI : MonoBehaviour {
 
 	[HideInInspector]
-	public GameObject selectedObject;
+	public GameObject selectedObject = null;
 	public Text hierarchyNameText;
 	public Text typeText;
 	public Text classText;
+	public Text directionText;
 	public Text velocityText;
 
 	CharacterStats characterStats;
@@ -28,15 +29,21 @@ public class ObjectDebugGUI : MonoBehaviour {
 		}
 	}
 
-	void UpdateStaticInfo() {
+	public void UpdateStaticInfo() {
 
-		characterStats = selectedObject.GetComponent<CharacterStats>();
+		if (selectedObject != null) {
 
-		if (selectedObject.GetComponent<CharacterStats>() != null) {
-			hierarchyNameText.text = "Hierarchy Name: " + selectedObject.name;
-			typeText.text = "Object Type: " + characterStats.characterType;
-			classText.text = "Class: " + characterStats.characterClass;
+			characterStats = selectedObject.GetComponent<CharacterStats>();
+
+			if (selectedObject.GetComponent<CharacterStats>() != null) {
+				hierarchyNameText.text = "Hierarchy Name: " + selectedObject.name;
+				typeText.text = "Object Type: " + characterStats.characterType;
+				classText.text = "Class: " + characterStats.characterClass;
+				directionText.text = "Direction: " + characterStats.characterDirection;
+			}
+
 		}
+
 	}
 
 	public void UpdateVelocity(float xVelocity, float zVelocity) {

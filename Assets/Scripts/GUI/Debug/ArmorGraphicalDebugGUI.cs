@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class ArmorGraphicalDebugGUI : MonoBehaviour {
 
 	public GameObject armorMenu;
+	public GameObject titleText;
 	public Toggle[] toggles;
 	bool enableArmorMenu = false;
 
@@ -11,6 +12,7 @@ public class ArmorGraphicalDebugGUI : MonoBehaviour {
 
 		// Detecting input for option to display the menu.
 		if (Input.GetButtonDown("ArmorGraphicDebugToggle")) {
+			titleText.SetActive(false);
 			enableArmorMenu = !enableArmorMenu;
 		}
 

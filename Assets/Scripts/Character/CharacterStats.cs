@@ -11,8 +11,16 @@ public class CharacterStats : MonoBehaviour {
 		Warrior
 	}
 
+	public enum CharacterDirection {
+		Down,
+		Left,
+		Up,
+		Right
+	}
+
 	public CharacterType characterType;
 	public CharacterClass characterClass;
+	public CharacterDirection characterDirection;
 
 	ObjectDebugGUI objectDebugGUI;
 
@@ -21,13 +29,14 @@ public class CharacterStats : MonoBehaviour {
 	[HideInInspector]
 	public float zVelocity;
 
-	//[HideInInspector]
+	[HideInInspector]
 	public bool selected = false;
 
 	[SerializeField]
 	int maxHealth;
 	int currentHealth = 1;
 
+	[HideInInspector]
 	public string nameInHierarchy;
 
 	void Awake() {
@@ -51,5 +60,11 @@ public class CharacterStats : MonoBehaviour {
 
 	void RefreshDebugGUI() {
 		objectDebugGUI.UpdateVelocity(xVelocity, zVelocity);
+	}
+
+	// Changes current characterDirection and refreshes static info in debug menu.
+	public void ChangeCharacterDirection(CharacterDirection direction) {
+		characterDirection = direction;
+		objectDebugGUI.UpdateStaticInfo();
 	}
 }
