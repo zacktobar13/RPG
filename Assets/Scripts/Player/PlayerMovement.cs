@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour {
 		leftRight = Input.GetAxis("Horizontal");
 		upDown = Input.GetAxis("Vertical");
 
-
 		animator.SetFloat("RunBlend", Mathf.Abs(upDown));
 
 		// Actual movement

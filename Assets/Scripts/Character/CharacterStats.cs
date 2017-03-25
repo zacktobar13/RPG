@@ -23,6 +23,7 @@ public class CharacterStats : MonoBehaviour {
 	public CharacterDirection characterDirection;
 
 	ObjectDebugGUI objectDebugGUI;
+	SpriteDirectionSwitcher spriteDirectionSwitcher;
 
 	[HideInInspector]
 	public float xVelocity;
@@ -41,6 +42,7 @@ public class CharacterStats : MonoBehaviour {
 
 	void Awake() {
 		objectDebugGUI = GameObject.FindGameObjectWithTag("Object Debug GUI").GetComponent<ObjectDebugGUI>();
+		spriteDirectionSwitcher = GetComponent<SpriteDirectionSwitcher>();
 	}
 
 	void Start() {
@@ -65,6 +67,7 @@ public class CharacterStats : MonoBehaviour {
 	// Changes current characterDirection and refreshes static info in debug menu.
 	public void ChangeCharacterDirection(CharacterDirection direction) {
 		characterDirection = direction;
+		spriteDirectionSwitcher.ChangeSpriteSet(direction);
 		objectDebugGUI.UpdateStaticInfo();
 	}
 }
