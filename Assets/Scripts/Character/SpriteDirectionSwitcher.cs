@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpriteDirectionSwitcher : MonoBehaviour {
 
 	[SerializeField]
-	GameObject[] spriteContainers;
+	public GameObject[] spriteContainers;
+	PlayerMovement playerMovement;
 
 	void Awake() {
 
@@ -32,6 +31,8 @@ public class SpriteDirectionSwitcher : MonoBehaviour {
 
 	}
 
+	// Takes in direction variable from CharacterStats and dynamically enables/disables
+	// the correct sprite. Literally the dumbest code I've ever written but it works.
 	public void ChangeSpriteSet(CharacterStats.CharacterDirection direction) {
 
 		foreach(GameObject spriteContainer in spriteContainers) {

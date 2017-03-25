@@ -18,12 +18,14 @@ public class PlayerMovement : MonoBehaviour {
 	Vector3 zVelocity;
 	Vector3 previous;
 
-	Animator animator;
+	public Animator animator;
 	CharacterStats characterStats;
 
 	void Awake() {
+
 		animator = GetComponentInChildren<Animator>();
 		characterStats = GetComponent<CharacterStats>();
+
 	}
 
 	void Update() {
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour {
 	// First determine which axis is receiving a greater value of input. Then, determine which
 	// polarity (left/right, up/down), is occuring within that axis for proper direction handling.
 	void UpdateDirection() {
-
+		animator = GetComponentInChildren<Animator>();
 		if (Mathf.Abs(zVelocity.z) >= Mathf.Abs(xVelocity.x)) {
 
 			if (zVelocity.z >= .01f) {
