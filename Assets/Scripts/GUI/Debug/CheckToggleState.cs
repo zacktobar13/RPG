@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class CheckToggleState : MonoBehaviour {
 
-	public SpriteRenderer sprite;
+	public SpriteRenderer[] sprites;
 
 	Toggle toggle;
 
@@ -14,20 +14,25 @@ public class CheckToggleState : MonoBehaviour {
 
 		toggle = GetComponent<Toggle>();
 
-		if (sprite.enabled) {
-			toggle.isOn = true;
-		} else {
-			toggle.isOn = false;
+		foreach (SpriteRenderer sprite in sprites) {
+			if (sprite.enabled) {
+				toggle.isOn = true;
+			} else {
+				toggle.isOn = false;
+			}
 		}
 	}
 
 	// Checks every frame if Toggle component's corresponding Sprite Renderer should
 	// be enabled or disabled based on current Toggle state.
 	void Update() {
-		if (toggle.isOn) {
-			sprite.enabled = true;
-		} else {
-			sprite.enabled = false;
+		foreach (SpriteRenderer sprite in sprites) {
+
+			if (toggle.isOn) {
+				sprite.enabled = true;
+			} else {
+				sprite.enabled = false;
+			}
 		}
 	}
 
