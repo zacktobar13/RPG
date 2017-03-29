@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	Vector3 zVelocity;
 	Vector3 previous;
 
+	[HideInInspector]
 	public Animator animator;
 	CharacterStats characterStats;
 
@@ -34,7 +35,8 @@ public class PlayerMovement : MonoBehaviour {
 		leftRight = Input.GetAxis("Horizontal");
 		upDown = Input.GetAxis("Vertical");
 
-		animator.SetFloat("RunBlend", Mathf.Abs(upDown));
+		animator.SetFloat("RunBlendVertical", Mathf.Abs(upDown));
+		animator.SetFloat("RunBlendHorizontal", Mathf.Abs(leftRight));
 
 		// Actual movement
 		transform.Translate(Vector3.forward * upDown * movementSpeed * Time.deltaTime);
