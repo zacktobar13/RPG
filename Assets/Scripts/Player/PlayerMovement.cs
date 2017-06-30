@@ -18,13 +18,12 @@ public class PlayerMovement : MonoBehaviour {
 	Vector3 zVelocity;
 	Vector3 previous;
 
-	[HideInInspector]
 	public Animator animator;
 	CharacterStats characterStats;
 
 	void Awake() {
 
-		animator = GetComponentInChildren<Animator>();
+		animator = GetComponent<Animator>();
 		characterStats = GetComponent<CharacterStats>();
 
 	}
@@ -34,9 +33,6 @@ public class PlayerMovement : MonoBehaviour {
 		// Capturing player input
 		leftRight = Input.GetAxis("Horizontal");
 		upDown = Input.GetAxis("Vertical");
-
-		animator.SetFloat("RunBlendVertical", Mathf.Abs(upDown));
-		animator.SetFloat("RunBlendHorizontal", Mathf.Abs(leftRight));
 
 		// Actual movement
 		transform.Translate(Vector3.forward * upDown * movementSpeed * Time.deltaTime);
@@ -50,7 +46,17 @@ public class PlayerMovement : MonoBehaviour {
 		characterStats.xVelocity = xVelocity.x;
 		characterStats.zVelocity = zVelocity.z;
 
-		UpdateDirection();
+        // Animator control
+        if (Mathf.Abs(xVelocity.x) > 0 || Mathf.Abs(zVelocity.z) > 0)
+        {
+            animator.SetBool("Running", true);
+        }
+        else
+        {
+            animator.SetBool("Running", false);
+        }
+
+        UpdateDirection();
 	}
 
 	// First determine which axis is receiving a greater value of input. Then, determine which
