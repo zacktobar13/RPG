@@ -1,14 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAbilities : MonoBehaviour
 {
     public GameObject portal;
+    GameObject currentPortal = null;
+    string currentSceneName;
+
+    private void Start()
+    {
+        currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.activeSceneChanged += ActiveSceneChanged;
+    }
+
+    void ActiveSceneChanged(Scene previousScene, Scene currentScene)
+    {
+        currentSceneName = currentScene.name;
+    }
 
     void Update()
     {
-        if(Input.GetButtonDown("CastPortal"))
+        if (Input.GetButtonDown("CastPortal"))
         {
             CastPortal();
         }
@@ -16,7 +28,17 @@ public class PlayerAbilities : MonoBehaviour
 
     void CastPortal()
     {
-        GameObject newPortal = Instantiate(portal, new Vector3(transform.position.x, transform.position.y, transform.position.z + 4), Quaternion.identity);
-        newPortal.GetComponent<Portal>().SetDestination("Tree Town");
+        if (currentSceneName == SceneNames.HomeBase)
+        {
+            return;
+        }
+
+        if (currentPortal != null)
+        {
+            Destroy(currentPortal);
+        }
+
+        currentPortal = Instantiate(portal, new Vector3(transform.position.x, transform.position.y, transform.position.z + 4), Quaternion.identity);
+        currentPortal.GetComponent<Portal>().SetDestination(SceneNames.HomeBase);
     }
 }
