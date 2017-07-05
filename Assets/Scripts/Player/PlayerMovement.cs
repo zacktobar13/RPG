@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour {
 		leftRight = Input.GetAxis("Horizontal");
 		upDown = Input.GetAxis("Vertical");
 
+        animator.SetFloat("MovementBlend", Mathf.Abs(leftRight));
+
 		// Actual movement
 		transform.Translate(Vector3.forward * upDown * movementSpeed * Time.deltaTime);
 		transform.Translate(Vector3.right * leftRight * movementSpeed * Time.deltaTime);
