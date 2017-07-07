@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerAbilities : MonoBehaviour
-{
+public class AbilityPortal : MonoBehaviour {
+
     public GameObject portal;
     GameObject currentPortal = null;
     string currentSceneName;
