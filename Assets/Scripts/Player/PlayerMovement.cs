@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Rewired;
 
 /** This class reaches out to the Player Input game object and applies basic movement
   * based off of that. The names and properties of our Input axes and buttons are found in
@@ -8,7 +7,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+   
     [SerializeField]
     float movementSpeed;
 
@@ -19,26 +18,18 @@ public class PlayerMovement : MonoBehaviour
     Vector3 zVelocity;
     Vector3 previous;
 
-    public Animator animator;
     CharacterStats characterStats;
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
     }
 
     void Update()
     {
-        // Capturing player input
-        leftRight = Input.GetAxis("Horizontal");
-        upDown = Input.GetAxis("Vertical");
-
-        animator.SetFloat("MovementBlend", Mathf.Abs(leftRight));
-
         // Actual movement
-        transform.Translate(Vector3.forward * upDown * movementSpeed * Time.deltaTime);
-        transform.Translate(Vector3.right * leftRight * movementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * PlayerInput.movementVertical * movementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * PlayerInput.movementHorizontal * movementSpeed * Time.deltaTime);
 
         // Capturing movement stats and sending it to CharacterStats component.
         xVelocity.x = (transform.position.x - previous.x) / Time.deltaTime;
@@ -48,16 +39,6 @@ public class PlayerMovement : MonoBehaviour
         characterStats.xVelocity = xVelocity.x;
         characterStats.zVelocity = zVelocity.z;
 
-        // Animator control
-        if (Mathf.Abs(xVelocity.x) > 0 || Mathf.Abs(zVelocity.z) > 0)
-        {
-            animator.SetBool("Running", true);
-        }
-        else
-        {
-            animator.SetBool("Running", false);
-        }
-
         UpdateDirection();
     }
 
@@ -65,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     // polarity (left/right, up/down), is occuring within that axis for proper direction handling.
     void UpdateDirection()
     {
-        animator = GetComponentInChildren<Animator>();
         if (Mathf.Abs(zVelocity.z) >= Mathf.Abs(xVelocity.x))
         {
             if (zVelocity.z >= .01f)

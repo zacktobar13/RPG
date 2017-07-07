@@ -20,7 +20,7 @@ public class AbilityPortal : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("CastPortal"))
+        if (PlayerInput.castPortal)
         {
             CastPortal();
         }
