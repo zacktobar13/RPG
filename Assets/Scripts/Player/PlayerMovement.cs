@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         zVelocity.z = (transform.position.z - previous.z) / Time.deltaTime;
         previous = transform.position;
 
+        // Debugging
         characterStats.xVelocity = xVelocity.x;
         characterStats.zVelocity = zVelocity.z;
 

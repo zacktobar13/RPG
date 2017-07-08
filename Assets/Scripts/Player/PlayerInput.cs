@@ -13,6 +13,8 @@ public class PlayerInput : MonoBehaviour {
     public static float attackVertical = 0f;
 
     public static bool castPortal = false;
+    public static bool showInventory = false;
+    public static bool interact = false;
 
     // Use this for initialization
     void Awake () {
@@ -29,5 +31,9 @@ public class PlayerInput : MonoBehaviour {
         attackVertical = player.GetAxis("Attack Vertical");
 
         castPortal = player.GetButtonDown("Cast Portal");
+        showInventory = player.GetButtonDown("Show Inventory");
+        interact = player.GetButtonDown("Interact");
+
+
     }
 }
