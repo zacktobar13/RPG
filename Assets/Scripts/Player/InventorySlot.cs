@@ -7,9 +7,12 @@ public class InventorySlot : MonoBehaviour {
 
     [HideInInspector] public GameObject itemInSlot;
     public Image image;
+    public bool isSelected;
+    public static Sprite defaultSprite;
 
-    private void Start()
+    private void Awake()
     {
+        image.sprite = defaultSprite;
         itemInSlot = null;
         // TODO: Eventually we'll make these some default image
     }
