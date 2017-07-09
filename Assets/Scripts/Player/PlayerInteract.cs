@@ -34,7 +34,6 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.gameObject.tag == "Interactable")
         {
-            Debug.Log(other.name);
             objectsInRange.Add(other.gameObject);
         }
     }
