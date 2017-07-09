@@ -14,9 +14,10 @@ public class BaseItem : MonoBehaviour
 
     public Sprite sprite;
 
-    public void InteractWithPlayer(GameObject player)
+    public void InteractWithPlayer(PlayerAndNearObjects playerAndList)
     {
-        player.GetComponent<Inventory>().AddToInventory(gameObject);
+        playerAndList.player.GetComponent<Inventory>().AddToInventory(gameObject);
+        playerAndList.objectsInRange.Remove(gameObject);
     }
 
     private void Start()

@@ -25,7 +25,8 @@ public class PlayerInteract : MonoBehaviour
         GameObject nearestObject = Utils.FindNearestObject(gameObject, objectsInRange);
         if (nearestObject)
         {
-            nearestObject.SendMessage("InteractWithPlayer", gameObject);
+            PlayerAndNearObjects playerAndList = new PlayerAndNearObjects(gameObject, objectsInRange);
+            nearestObject.SendMessage("InteractWithPlayer", playerAndList);
         }
     }
 
@@ -44,5 +45,17 @@ public class PlayerInteract : MonoBehaviour
         {
             objectsInRange.Remove(other.gameObject);
         }
+    }
+}
+
+public class PlayerAndNearObjects
+{
+    public GameObject player;
+    public List<GameObject> objectsInRange;
+
+    public PlayerAndNearObjects(GameObject p, List<GameObject> obj)
+    {
+        player = p;
+        objectsInRange = obj;
     }
 }
