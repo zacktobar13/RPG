@@ -1,15 +1,15 @@
 fileFormatVersion: 2
 guid: 6284888bed5961d43850952ea3f9b056
-timeCreated: 1498973424
+timeCreated: 1499588895
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PlayerCharacter_0
-    21300002: PlayerCharacter_1
-    21300004: PlayerCharacter_2
-    21300006: PlayerCharacter_3
-    21300008: PlayerCharacter_4
-    21300010: PlayerCharacter_5
+    21300000: PlayerCharacter_Head
+    21300002: PlayerCharacter_Eyes
+    21300004: PlayerCharacter_Hair
+    21300006: PlayerCharacter_Torso
+    21300008: PlayerCharacter_Hand
+    21300010: PlayerCharacter_Foot
     21300012: PlayerCharacter_6
     21300014: PlayerCharacter_7
     21300016: PlayerCharacter_8
@@ -31,6 +31,12 @@ TextureImporter:
     21300048: PlayerCharacter_24
     21300050: PlayerCharacter_25
     21300052: PlayerCharacter_26
+    21300054: PlayerCharacter_0
+    21300056: PlayerCharacter_1
+    21300058: PlayerCharacter_2
+    21300060: PlayerCharacter_3
+    21300062: PlayerCharacter_4
+    21300064: PlayerCharacter_5
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -63,7 +69,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -126,8 +132,8 @@ TextureImporter:
       name: PlayerCharacter_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 64
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -139,8 +145,8 @@ TextureImporter:
       name: PlayerCharacter_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 128
+        x: 96
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -153,7 +159,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -166,7 +172,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -179,7 +185,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -189,6 +195,110 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: PlayerCharacter_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_12
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_14
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_15
       rect:
         serializedVersion: 2
         x: 0
@@ -201,10 +311,62 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerCharacter_8
+      name: PlayerCharacter_16
       rect:
         serializedVersion: 2
         x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerCharacter_20
+      rect:
+        serializedVersion: 2
+        x: 160
         y: 64
         width: 32
         height: 32

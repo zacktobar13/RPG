@@ -9,6 +9,6 @@ public class SpriteEnableLighting : MonoBehaviour {
 	}
 	void Start() {
 		spriteRenderer.receiveShadows = true;
-		spriteRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+		spriteRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
 	}
 }
