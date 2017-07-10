@@ -27,11 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        /* Actual movement
-        transform.Translate(Vector3.forward * PlayerInput.movementVertical * movementSpeed * Time.deltaTime);
-        transform.Translate(Vector3.right * PlayerInput.movementHorizontal * movementSpeed * Time.deltaTime);
-        */
-
+        // Known problem: can't go slower than full speed
         Vector3 movement = new Vector3(PlayerInput.movementHorizontal, 0f, PlayerInput.movementVertical);
         movement = movement.normalized * Time.deltaTime * movementSpeed;
         transform.Translate(movement);
