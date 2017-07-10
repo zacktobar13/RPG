@@ -27,9 +27,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Actual movement
+        /* Actual movement
         transform.Translate(Vector3.forward * PlayerInput.movementVertical * movementSpeed * Time.deltaTime);
         transform.Translate(Vector3.right * PlayerInput.movementHorizontal * movementSpeed * Time.deltaTime);
+        */
+
+        Vector3 movement = new Vector3(PlayerInput.movementHorizontal, 0f, PlayerInput.movementVertical);
+        movement = movement.normalized * Time.deltaTime * movementSpeed;
+        transform.Translate(movement);
 
         // Capturing movement stats and sending it to CharacterStats component.
         xVelocity.x = (transform.position.x - previous.x) / Time.deltaTime;
