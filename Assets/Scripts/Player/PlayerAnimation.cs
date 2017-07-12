@@ -14,5 +14,7 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetBool("RunningVertical", Mathf.Abs(PlayerInput.movementVertical) > .1f);
 
         animator.SetBool("RunningRight", PlayerInput.movementHorizontal > .1f);
+
+        animator.SetBool("RunningLeft", PlayerInput.movementHorizontal < -.1f);
     }
 }

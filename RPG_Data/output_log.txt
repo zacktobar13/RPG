@@ -17,27 +17,9 @@ Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed
 Loading C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.020 seconds
+- Completed reload, in  0.025 seconds
 Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\System.dll (this message is harmless)
-desktop: 2560x1440 144Hz; virtual: 7680x1440 at -2560,0
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 2560x1440 59Hz; virtual: 7680x1440 at -2560,0
-<RI> Initialized touch support.
-UnloadTime: 0.811640 ms
-Setting up 4 worker threads for Enlighten.
-  Thread -> id: 1968 -> priority: 1 
-  Thread -> id: 428 -> priority: 1 
-  Thread -> id: d8 -> priority: 1 
-  Thread -> id: 62d0 -> priority: 1 
-Player entered portal
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.827906 ms
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 382.
-Total: 0.177249 ms (FindLiveObjects: 0.015116 ms CreateObjectMapping: 0.010727 ms MarkObjects: 0.142872 ms  DeleteObjects: 0.008289 ms)
-
