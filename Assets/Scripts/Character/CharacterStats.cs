@@ -6,6 +6,7 @@ public class CharacterStats : MonoBehaviour
     public enum CharacterType
     {
         Player,
+        NPC,
         Enemy
     }
 
@@ -36,10 +37,6 @@ public class CharacterStats : MonoBehaviour
     [HideInInspector]
     public bool selected = false;
 
-    [SerializeField]
-    int maxHealth;
-    int currentHealth = 1;
-
     [HideInInspector]
     public string nameInHierarchy;
 
@@ -50,18 +47,11 @@ public class CharacterStats : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
         nameInHierarchy = gameObject.name;
     }
 
     void Update()
     {
-
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-
         if (selected)
         {
             RefreshDebugGUI();

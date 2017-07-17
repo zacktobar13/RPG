@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
-    string ItemName { get; set; }
+    public string ItemName { get; set; }
 
-    string Description { get; set; }
+    public string Description { get; set; }
 
-    Type ItemType { get; set; }
+    public Type ItemType { get; set; }
 
     int Seed { get; set; }
 
@@ -26,7 +27,7 @@ public class BaseItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Two items are considered equal iff they have the same name
+    /// Two items are considered equal iff they have the same name and seed.
     /// </summary>
     public override bool Equals(object other)
     {
@@ -44,6 +45,11 @@ public class BaseItem : MonoBehaviour
         return ItemName;
     }
 
+    public virtual void RollItemStats(int seed)
+    {
+        Debug.LogError("Implement RollItemStats in item class, don't rely on BaseItem's!");
+    }
+
     public enum Type
     {
         Weapon,
@@ -52,5 +58,18 @@ public class BaseItem : MonoBehaviour
         Helmet,
         Gloves,
         Boots
+    }
+
+    /// <summary>
+    /// Serializes an item at PATH with its name being the items name + seed.
+    /// Saves it in the format: Name\nSeed
+    /// Given the Name we can find the prefab, then use the Seed to build up stats.
+    /// TODO: Make a more foolproof naming convention (could be collisions now)
+    /// </summary>
+    public void SaveItem(string path)
+    {
+        string itemPath = Path.Combine(path, ItemName + Seed.ToString());
+        File.Create(itemPath);
+        File.AppendAllText(itemPath, ItemName + "\n" + Seed.ToString());
     }
 }
