@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Interactable")
         {
@@ -38,7 +38,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Interactable")
         {

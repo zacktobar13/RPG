@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     float leftRight;
 
     Vector3 xVelocity;
-    Vector3 zVelocity;
+    Vector3 yVelocity;
     Vector3 previous;
 
     CharacterStats characterStats;
@@ -28,18 +28,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Known problem: can't go slower than full speed
-        Vector3 movement = new Vector3(PlayerInput.movementHorizontal, 0f, PlayerInput.movementVertical);
+        Vector3 movement = new Vector3(PlayerInput.movementHorizontal, PlayerInput.movementVertical, 0f);
         movement = movement.normalized * Time.deltaTime * movementSpeed;
         transform.Translate(movement);
 
         // Capturing movement stats and sending it to CharacterStats component.
         xVelocity.x = (transform.position.x - previous.x) / Time.deltaTime;
-        zVelocity.z = (transform.position.z - previous.z) / Time.deltaTime;
+        yVelocity.y = (transform.position.y - previous.y) / Time.deltaTime;
         previous = transform.position;
 
         // Debugging
         characterStats.xVelocity = xVelocity.x;
-        characterStats.zVelocity = zVelocity.z;
+        characterStats.yVelocity = yVelocity.y;
 
         UpdateDirection();
     }
@@ -48,13 +48,13 @@ public class PlayerMovement : MonoBehaviour
     // polarity (left/right, up/down), is occuring within that axis for proper direction handling.
     void UpdateDirection()
     {
-        if (Mathf.Abs(zVelocity.z) >= Mathf.Abs(xVelocity.x))
+        if (Mathf.Abs(yVelocity.y) >= Mathf.Abs(xVelocity.x))
         {
-            if (zVelocity.z >= .01f)
+            if (yVelocity.y >= .01f)
             {
                 characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Up);
             }
-            else if (zVelocity.z <= -.01f)
+            else if (yVelocity.y <= -.01f)
             {
                 characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Down);
             }

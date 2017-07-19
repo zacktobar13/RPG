@@ -6,10 +6,6 @@ public class SmoothTrackTarget : MonoBehaviour {
 	[SerializeField]
 	Transform target;
 
-	[Tooltip("Value for how far back camera will sit.")]
-	[SerializeField]
-	float zAxisOffset = -14;
-
 	[Tooltip("Smaller number means slower camera tracking.")]
 	[SerializeField]
 	float smoothSpeed;
@@ -27,8 +23,8 @@ public class SmoothTrackTarget : MonoBehaviour {
 		currentPosition.x = currentPosition.x + (smoothSpeed * (desiredPosition.x - currentPosition.x));
 
 		// Calculating interpolation of Z axis between our current and target values.
-		currentPosition.z = transform.position.z;
-		currentPosition.z = currentPosition.z + (smoothSpeed * ((desiredPosition.z + zAxisOffset) - currentPosition.z));
+		currentPosition.y = transform.position.y;
+		currentPosition.y = currentPosition.y + (smoothSpeed * (desiredPosition.y - currentPosition.y));
 
 		// Applying our calculated interpolation to our camera transform.
 		transform.position = currentPosition;
