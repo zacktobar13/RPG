@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
    
     [SerializeField]
     float movementSpeed;
+    public int movementType;
+    public int facing;
 
     float upDown;
     float leftRight;
@@ -19,10 +21,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 previous;
 
     CharacterStats characterStats;
+    Animator animator;
 
     void Awake()
     {
         characterStats = GetComponent<CharacterStats>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -53,10 +57,12 @@ public class PlayerMovement : MonoBehaviour
             if (yVelocity.y >= .01f)
             {
                 characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Up);
+                animator.SetInteger("facing", 2);
             }
             else if (yVelocity.y <= -.01f)
             {
                 characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Down);
+                animator.SetInteger("facing", 3);
             }
         }
         else
@@ -64,10 +70,12 @@ public class PlayerMovement : MonoBehaviour
             if (xVelocity.x >= .01f)
             {
                 characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Right);
+                animator.SetInteger("facing", 1);
             }
             else if (xVelocity.x <= -.01f)
             {
                 characterStats.ChangeCharacterDirection(CharacterStats.CharacterDirection.Left);
+                animator.SetInteger("facing", 0);
             }
         }
     }

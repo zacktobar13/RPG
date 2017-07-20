@@ -17,7 +17,7 @@ Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed
 Loading C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.025 seconds
+- Completed reload, in  0.014 seconds
 Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Taylor\Desktop\Game Repos\Unity RPG\RPG_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
