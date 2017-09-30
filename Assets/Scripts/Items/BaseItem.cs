@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[System.Serializable]
 public class BaseItem : MonoBehaviour
 {
-    public string ItemName { get; set; }
+    public string ItemName;
 
-    public string Description { get; set; }
+    public string Description;
 
-    public Type ItemType { get; set; }
+    public Type ItemType;
 
-    int Seed { get; set; }
+    int Seed;
 
     public Sprite sprite;
 
@@ -42,7 +43,7 @@ public class BaseItem : MonoBehaviour
 
     public override string ToString()
     {
-        return ItemName;
+        return string.Concat(ItemName, " : ", Seed);
     }
 
     public virtual void RollItemStats(int seed)
@@ -61,15 +62,19 @@ public class BaseItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Serializes an item at PATH with its name being the items name + seed.
+    /// Serializes an item at PATH with its name being the itemName:Seed.
     /// Saves it in the format: Name\nSeed
     /// Given the Name we can find the prefab, then use the Seed to build up stats.
     /// TODO: Make a more foolproof naming convention (could be collisions now)
     /// </summary>
-    public void SaveItem(string path)
+    public string SaveItem(string path)
     {
-        string itemPath = Path.Combine(path, ItemName + Seed.ToString());
-        File.Create(itemPath);
-        File.AppendAllText(itemPath, ItemName + "\n" + Seed.ToString());
+        string itemPath = Path.Combine(path, string.Concat(ItemName, "-", Seed.ToString()));
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+        File.Create(itemPath).Close();
+        return itemPath;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,16 +13,18 @@ public class Inventory : MonoBehaviour
     float lastMovement;
     int currentSlot;
     Color originalColor;
-    
+
     public GameObject inventoryDisplay;
     public InventorySlot[] inventorySlots;
     public InventorySlot[] equipmentSlots;
     List<GameObject> itemsToDestroy;
     PlayerMovement playerMovement;
     PlayerInteract playerInteract;
-    
+    public static string inventorySavePath;
+
     void Awake()
     {
+        inventorySavePath = Path.Combine(Application.persistentDataPath, "inventory");
         itemsToDestroy = new List<GameObject>();
         playerMovement = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
@@ -31,7 +34,7 @@ public class Inventory : MonoBehaviour
         currentSlot = 0;
 
         // TODO: Eventually we'll load in slots from memory
-        slotsInUse = 0;
+        slotsInUse = LoadInventory(inventorySavePath);
         ShowInventory();
     }
 
@@ -40,6 +43,7 @@ public class Inventory : MonoBehaviour
         SceneManager.activeSceneChanged += DestroyUnreferencedItems;
     }
 
+    /* All user interaction is handled in update. */
     void Update()
     {
         if (PlayerInput.showInventory)
@@ -72,11 +76,11 @@ public class Inventory : MonoBehaviour
 
     void ShowInventory()
     {
-        #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
         inventoryDisplay.active = !inventoryDisplay.active;
         playerMovement.enabled = !inventoryDisplay.active;
         playerInteract.enabled = !inventoryDisplay.active;
-        #pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 // Type or member is obsolete
 
         lastMovement = Time.time;
         ChangeSelectedSlot(currentSlot, 0);
@@ -92,11 +96,7 @@ public class Inventory : MonoBehaviour
             return false;
         }
         int index = NextAvaliableIndex();
-        DontDestroyOnLoad(item);
-        inventorySlots[index].itemInSlot = item;
-        inventorySlots[index].image.sprite = item.GetComponent<SpriteRenderer>().sprite;
-        item.SetActive(false);
-
+        inventorySlots[index].AddToSlot(item);
         slotsInUse++;
         return true;
     }
@@ -107,10 +107,8 @@ public class Inventory : MonoBehaviour
         {
             if (inventorySlots[i].itemInSlot == item)
             {
-                inventorySlots[i].itemInSlot.transform.position = this.transform.position;
-                inventorySlots[i].itemInSlot.SetActive(true);
-                inventorySlots[i].itemInSlot = null;
-                inventorySlots[i].image.sprite = InventorySlot.defaultSprite;
+                inventorySlots[i].RemoveItemFromSlot();
+                File.Delete(Path.Combine(inventorySavePath, inventorySlots[i].itemPath));
                 return true;
             }
         }
@@ -126,10 +124,8 @@ public class Inventory : MonoBehaviour
         }
 
         itemsToDestroy.Add(slot.itemInSlot);
-        slot.itemInSlot.transform.position = this.transform.position;
-        slot.itemInSlot.SetActive(true);
-        slot.itemInSlot = null;
-        slot.image.sprite = InventorySlot.defaultSprite;
+        slot.RemoveItemFromSlot();
+        File.Delete(Path.Combine(inventorySavePath, slot.itemPath));
         return true;
     }
 
@@ -163,12 +159,7 @@ public class Inventory : MonoBehaviour
         int roundedY = InputsToInt(yInput);
 
         // TODO: Change this to be more intuitive and less correct.
-        return (int)(Mod(Mod(currentPosition + roundedX, totalSlots) + -4 * roundedY, totalSlots));
-    }
-
-    public void LoadInventory(string path)
-    {
-
+        return (int) (Mod(Mod(currentPosition + roundedX, totalSlots) + -4 * roundedY, totalSlots));
     }
 
     float Mod(float a, float b)
@@ -203,5 +194,16 @@ public class Inventory : MonoBehaviour
             return 1;
         }
         return 0;
+    }
+
+    public int LoadInventory(string path)
+    {
+        if (!Directory.Exists(inventorySavePath))
+        {
+            return 0;
+        }
+        // TODO: Else: Load inventory into available slots
+        // TODO: Find prefab given itemName, roll prefabs stats, add prefab to inventory
+        return -1;
     }
 }
