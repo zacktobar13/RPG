@@ -17,6 +17,8 @@ public class EnemyMeleeBehavior : MonoBehaviour
     [SerializeField]
     float meleeRange;
 
+    public GameObject meleeRight;
+
     GameObject player;
     PlayerStatus playerStatus;
     
@@ -34,8 +36,16 @@ public class EnemyMeleeBehavior : MonoBehaviour
         }
         else if (Time.time > lastAttack + attackCooldown)
         {
-            playerStatus.ApplyDamage(damage);
+            StartCoroutine("MeleeAttack");
             lastAttack = Time.time;
         }
+    }
+
+    IEnumerator MeleeAttack()
+    {
+        meleeRight.SetActive(true);
+        lastAttack = Time.time;
+        yield return new WaitForSeconds(.25f);
+        meleeRight.SetActive(false);
     }
 }

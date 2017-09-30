@@ -17,7 +17,7 @@ public class PlayerStatus : MonoBehaviour
         currentHealth = maxHealth = baseMaxHealth;
     }
 
-    public void ApplyDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         Debug.Log("Current Health: " + currentHealth);
