@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Damage : MonoBehaviour {
 
+    int damageValue = 5;
+    public GameObject floatingDamageText;
+
 	void OnTriggerEnter2D (Collider2D other) {
-        other.gameObject.SendMessage("TakeDamage", 5);
+        other.gameObject.SendMessage("TakeDamage", damageValue, SendMessageOptions.DontRequireReceiver);
+
+        GameObject text = Instantiate(floatingDamageText, new Vector3(other.transform.position.x, other.transform.position.y + 1.5f, other.transform.position.z), other.transform.rotation);
+        text.GetComponentInChildren<Text>().text = damageValue.ToString();
 	}
 }

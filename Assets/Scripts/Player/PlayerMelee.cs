@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMelee : MonoBehaviour {
 
     public GameObject meleeRight;
-    float meleeCooldown = 1f;
+    float meleeCooldown = .25f;
     float lastAttack = 0f;
 
     void Update () {
