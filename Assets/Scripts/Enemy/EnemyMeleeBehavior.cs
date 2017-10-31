@@ -30,6 +30,11 @@ public class EnemyMeleeBehavior : MonoBehaviour
     
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         if (Vector3.Distance(transform.position, player.transform.position) > meleeRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);

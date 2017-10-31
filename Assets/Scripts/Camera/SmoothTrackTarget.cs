@@ -14,6 +14,10 @@ public class SmoothTrackTarget : MonoBehaviour {
 	// which is located in Update.
 	void LateUpdate () {
 		
+        if (target == null)
+        {
+            return;
+        }
 		// Create a reference to our current position and our target goal.
 		Vector3 currentPosition = transform.position;
 		Vector3 desiredPosition = target.position;
