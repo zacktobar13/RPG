@@ -158,9 +158,6 @@ public class Inventory : MonoBehaviour
         int roundedX = InputsToInt(xInput);
         int roundedY = InputsToInt(yInput);
 
-        Debug.Log("Current Position: " + currentPosition);
-        Debug.Log("X AND Y: " + roundedX + " " + roundedY);
-
         if (currentPosition % 4 == 3 && roundedX == 1)
         {
             currentPosition -= 3;
@@ -186,8 +183,6 @@ public class Inventory : MonoBehaviour
         {
             currentPosition += -roundedY * 4;
         }
-
-        Debug.Log("Aftermath current position: " + currentPosition);
 
         return currentPosition % 16;
     }
