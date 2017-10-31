@@ -1,28 +1,46 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMelee : MonoBehaviour
 {
 
+    public GameObject meleeUp;
     public GameObject meleeRight;
-    float meleeCooldown = 1f;
+    public GameObject meleeDown;
+    public GameObject meleeLeft;
+
+    float meleeCooldown = .5f;
     float lastAttack = 0f;
 
     void Update ()
     {
-        if ((PlayerInput.attackHorizontal != 0) && (Time.time >= lastAttack + meleeCooldown))
+        if ((PlayerInput.attackHorizontal != 0 || PlayerInput.attackVertical != 0) && (Time.time >= lastAttack + meleeCooldown))
         {
             lastAttack = Time.time;
-            StartCoroutine("MeleeAttack");
+
+            if (PlayerInput.attackHorizontal > .25)
+            {
+                StartCoroutine("MeleeAttack", meleeRight);
+            }
+            else if (PlayerInput.attackHorizontal < -.25)
+            {
+                StartCoroutine("MeleeAttack", meleeLeft);
+            }
+            else if (PlayerInput.attackVertical < -.25)
+            {
+                StartCoroutine("MeleeAttack", meleeDown);
+            }
+            else if (PlayerInput.attackVertical > .25)
+            {
+                StartCoroutine("MeleeAttack", meleeUp);
+            }
         }
 	}
 
-    IEnumerator MeleeAttack()
+    IEnumerator MeleeAttack(GameObject damageField)
     {
-        meleeRight.SetActive(true);
+        damageField.SetActive(true);
         yield return new WaitForSeconds(.25f);
-        meleeRight.SetActive(false);
+        damageField.SetActive(false);
     }
-
 }
