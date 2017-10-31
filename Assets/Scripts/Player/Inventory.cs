@@ -158,13 +158,38 @@ public class Inventory : MonoBehaviour
         int roundedX = InputsToInt(xInput);
         int roundedY = InputsToInt(yInput);
 
-        // TODO: Change this to be more intuitive and less correct.
-        return (int) (Mod(Mod(currentPosition + roundedX, totalSlots) + -4 * roundedY, totalSlots));
-    }
+        Debug.Log("Current Position: " + currentPosition);
+        Debug.Log("X AND Y: " + roundedX + " " + roundedY);
 
-    float Mod(float a, float b)
-    {
-        return a - b * Mathf.Floor(a / b);
+        if (currentPosition % 4 == 3 && roundedX == 1)
+        {
+            currentPosition -= 3;
+        }
+        else if (currentPosition % 4 == 0 && roundedX == -1)
+        {
+            currentPosition += 3;
+        }
+        else
+        {
+            currentPosition += roundedX;
+        }
+
+        if (currentPosition <= 3 && roundedY == 1)
+        {
+            currentPosition += 12;
+        }
+        else if (currentPosition >= 12 && roundedY == -1)
+        {
+            currentPosition -= 12;
+        }
+        else
+        {
+            currentPosition += -roundedY * 4;
+        }
+
+        Debug.Log("Aftermath current position: " + currentPosition);
+
+        return currentPosition % 16;
     }
 
     /// <summary>
