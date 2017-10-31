@@ -13,8 +13,7 @@ public class FloatingDamageText : MonoBehaviour {
     {
         transform.position = new Vector3(transform.position.x, transform.position.y + .02f, transform.position.z);
     }
-
-    // Update is called once per frame
+    
     IEnumerator KillYourself() {
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);

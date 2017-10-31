@@ -6,7 +6,7 @@ public class PlayerMelee : MonoBehaviour
 {
 
     public GameObject meleeRight;
-    float meleeCooldown = .5f;
+    float meleeCooldown = 1f;
     float lastAttack = 0f;
 
     void Update ()
